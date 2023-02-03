@@ -60,10 +60,19 @@ inquirer.prompt(questions).then(answers => {
 
     let licenseBadge = '';
     let licenseText = '';
-    if (license !== 'None') {
-        licenseBadge = `[![License](https://img.shields.io/badge/License-${license}-yellow.svg)](https://opensource.org/licenses/${license})`;
-        licenseText = `## License\nThis project is licensed under the ${license} license.`;
+    if (license === 'MIT') {
+        licenseBadge = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
+        licenseText = `## License\nThis project is licensed under the MIT license. See [LICENSE](LICENSE) for more information.`;
+    } else if (license === 'Apache 2.0') {
+        licenseBadge = '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
+        licenseText = `## License\nThis project is licensed under the Apache 2.0 license. See [LICENSE](LICENSE) for more information.`;
+    } else if (license === 'GPL 3.0') {
+        licenseBadge = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)';
+        licenseText = `## License\nThis project is licensed under the GPL 3.0 license. See [LICENSE](LICENSE) for more information.`;
+    } else {
+        licenseText = '## License\nThis project does not have a license.';
     }
+
 
     const readme = `
 # ${projectTitle}
@@ -106,3 +115,4 @@ ${licenseText}
         }
     });
 });
+
